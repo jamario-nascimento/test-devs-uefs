@@ -1,0 +1,12 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
+    "/js/listarAssunto.js": "/js/listarAssunto.js",
+    "/js/listarAutor.js": "/js/listarAutor.js",
+    "/js/listarLivro.js": "/js/listarLivro.js",
+    "/js/manterAssunto.js": "/js/manterAssunto.js",
+    "/js/manterAutor.js": "/js/manterAutor.js",
+    "/js/manterLivro.js": "/js/manterLivro.js",
+    "/js/required.js": "/js/required.js",
+    "/js/utils.js": "/js/utils.js"
+}

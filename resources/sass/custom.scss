@@ -1,0 +1,303 @@
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap);
+
+body {
+  font-family: "Open Sans", sans-serif !important;
+}
+
+h3 {
+  font-size: 1.575rem !important;
+  color: #33a352 !important;
+}
+
+.card-subtitle {
+    font-family: "Open Sans", sans-serif !important;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 22px;
+    align-items: center;
+    color: #27ae60;
+}
+
+.card-login .login-link, .card-login .subtitulo {
+  font-family: "Open Sans", sans-serif !important;
+}
+
+// Mensagem de erro do bootstrap.
+.invalid-feedback {
+    font-size: 90% !important;
+}
+
+.no-bg-color {
+  background-color: unset!important;
+}
+
+.btn {
+  border-color: #ffffff !important;
+  border: 0px solid transparent !important;
+}
+
+.btn-primary {
+    background: #33a352 !important;
+    border-radius: 5px !important;
+}
+
+.box-shadow {
+  box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.18);
+}
+
+// Select
+//
+// Replaces the browser default select with a custom one, mostly pulled from
+// https://primer.github.io/.
+//
+.custom-select {
+  display: inline-block;
+  width: 100%;
+  height: $custom-select-height;
+  padding: $custom-select-padding-y ($custom-select-padding-x + $custom-select-indicator-padding) $custom-select-padding-y $custom-select-padding-x;
+  font-family: $custom-select-font-family;
+  @include font-size($custom-select-font-size);
+  font-weight: $custom-select-font-weight;
+  line-height: $custom-select-line-height;
+  color: $custom-select-color;
+  vertical-align: middle;
+  background: $custom-select-background;
+  background-color: $custom-select-bg;
+  border: $custom-select-border-width solid $custom-select-border-color;
+  @include border-radius($custom-select-border-radius, 0);
+  @include box-shadow($custom-select-box-shadow);
+  appearance: none;
+
+  &:focus {
+    border-color: $custom-select-focus-border-color;
+    outline: 0;
+    @if $enable-shadows {
+      box-shadow: $custom-select-box-shadow, $custom-select-focus-box-shadow;
+    } @else {
+      box-shadow: $custom-select-focus-box-shadow;
+    }
+
+    &::-ms-value {
+      // For visual consistency with other platforms/browsers,
+      // suppress the default white text on blue background highlight given to
+      // the selected option text when the (still closed) <select> receives focus
+      // in IE and (under certain conditions) Edge.
+      // See https://github.com/twbs/bootstrap/issues/19398.
+      color: $input-color;
+      background-color: $input-bg;
+    }
+  }
+}
+
+.custom-select, .select2-selection--single {
+  background: url(/images/arrow-select.svg) no-repeat right .75rem center/10px 10px;
+  -webkit-appearance: none!important;
+  -moz-appearance: none!important;
+  appearance: none!important;
+}
+
+.text-primary {
+  color: #33a352 !important;
+}
+
+// Barra superior.
+.navbar-color {
+  background-color: #28a745 !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #fff !important;
+}
+
+// Cor menu esquerdo.
+[class*=sidebar-dark-] {
+  background-color: #fff !important;
+}
+
+[class*=sidebar-dark-] .nav-treeview>.nav-item>.nav-link {
+  color: #868e96;
+}
+
+[class*=sidebar-dark-] .sidebar a {
+  color: #78828a;
+}
+
+[class*=sidebar-dark] .brand-link {
+  border-bottom: 1px solid #9b9b9b1c;
+}
+
+.nav-sidebar > .nav-item > .nav-treeview {
+  background-color: #f8fafb !important;
+}
+
+[class*="sidebar-dark-"] .nav-sidebar > .nav-item.menu-open > .nav-link, [class*="sidebar-dark-"] .nav-sidebar > .nav-item:hover > .nav-link, [class*="sidebar-dark-"] .nav-sidebar > .nav-item > .nav-link:focus {
+  color: #28a745 !important;
+}
+
+[class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link:hover, [class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link:focus {
+  background-color: transparent !important;
+  color: #28a745 !important;
+}
+
+.nav-sidebar .nav-item > .nav-link {
+  margin-bottom: 0 !important;
+  padding-bottom: .85rem !important;
+}
+
+// Cor do menu ativado.
+.sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
+  background-color: #f8fafb !important;
+  color: #28a745 !important;
+  box-shadow: none;
+}
+
+[class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link.active, [class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link.active:focus, [class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link.active:hover {
+  color: #47c363 !important;
+}
+
+[class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link.active, [class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link.active:focus, [class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link.active:hover {
+  background-color: #f8fafb !important;
+}
+
+.brand-link {
+  text-align: center !important;
+}
+
+small, .small {
+  letter-spacing: 1px !important;
+}
+
+.alert-warning {
+  color: #194425 !important;
+  background: #ffc107 !important;
+  border-color: #edb100 !important;
+}
+
+// Combobox select2.
+.select2 {
+  width: 100% !important;
+}
+
+.select2-selection--single {
+  background: url(/images/arrow-select.svg) no-repeat right .75rem center/10px 10px;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  border: 1px solid #ced4da !important;
+  padding: 0.375rem .75rem 1.89rem !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+  border-style: unset!important;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+  display: unset!important;
+  padding-left: initial!important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  padding-left: 0;
+  height: auto;
+  margin-top: -9px!important;
+}
+
+.select2-container--default.select2-container--disabled .select2-selection--single {
+  background-color: #e9ecef!important;
+  cursor: default;
+}
+
+.search {
+  background: url(/images/search.svg) no-repeat right .75rem center/10px 10px;
+}
+// Combobox select2.
+
+.custom-file-label:after{
+  content:"Procurar" !important;
+}
+
+.timeline>div>.timeline-item>.timeline-header {
+  font-size: .9rem !important;
+}
+
+.card-login .header-login h4 {
+  font-weight: bold;
+  color: #33a352;
+  font-family: 'Rubik', sans-serif;
+  margin: 0;
+}
+
+.card-login .header-login p {
+  color: #95afc0;
+  font-family: 'Rubik', sans-serif;
+  padding: 0;
+  font-size: 18px;
+}
+
+.card-login .subtitulo {
+  color: #95afc0;
+  font-family: 'Rubik', sans-serif;
+  margin: 0;
+}
+
+.card-login .login-link {
+  color: #27ae60;
+  font-family: 'Rubik', sans-serif;
+}
+
+label {
+  font-weight: 400 !important;
+}
+
+.text-input {
+  font-style: normal;
+  line-height: 19px;
+  font-weight: 600 !important;
+  display: flex;
+  align-items: center;
+  color: #1B2465;
+}
+
+.alert li {
+  list-style: inside !important;
+}
+
+.bemvindo-dashboard {
+  font-family: "Open Sans", sans-serif !important;
+  font-style: normal;
+  font-weight: 600 !important;
+  font-size: 42px;
+  align-items: center;
+  color: #27ae60;
+}
+
+.card-primary.card-outline {
+    border-top: 3px solid #33a352 !important;
+}
+
+.bemvindo-card {
+  padding: 150px 0px;
+  min-height:98%;
+}
+
+.responsive {
+  max-width: 100% !important;
+  height: auto;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #6c757d;
+}
+
+.bg-primary {
+  background-color: #28a745 !important;
+}
+
+.buttons-filtros {
+  margin-top: 15px;
+}
+
+.sidebar .nav-treeview .nav-item .nav-link {
+  padding-left: 30px !important;
+}
