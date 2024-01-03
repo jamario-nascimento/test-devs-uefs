@@ -63,8 +63,8 @@ class TagRequest extends FormRequest
             $rules_update = [
                 'id' => [
                     'required',
-                    'unique:Autor,id,' . $this->id . ',id',
-                    'exists:Autor,id',
+                    'unique:Tag,id,' . $this->id . ',id',
+                    'exists:Tag,id',
                     'max:11'
                 ],
             ];

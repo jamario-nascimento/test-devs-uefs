@@ -81,57 +81,86 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/autor/listarAutor.js":
-/*!*******************************************!*\
-  !*** ./resources/js/autor/listarAutor.js ***!
-  \*******************************************/
+/***/ "./resources/js/post/manterPost.js":
+/*!*****************************************!*\
+  !*** ./resources/js/post/manterPost.js ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 $(function () {
-  $('.excluir').on('click', function (e) {
+  $('form').on('submit', function (e) {
     e.preventDefault();
+    $(".validarErro").removeClass("is-invalid");
+    $(".invalid-feedback").text("");
+    $(".invalid-feedback").hide();
     $("#spinnerLoading").show();
-    if (confirm("Deseja realmente excluir este registro?")) {
-      $.ajax({
-        url: "/api/autor/delete",
-        type: "DELETE",
-        data: {
-          CodAu: $(this).attr('cod')
-        }
-      }).done(function (resposta) {
-        toastr.success('Registro Excluído com sucesso!', 'Excluir Autor', {
+    var manter = $("#manter").val();
+    if (manter == 'Atualizar') {
+      var url = "/api/post/update";
+      var type = "PUT";
+    } else {
+      var url = "/api/post/create";
+      var type = "POST";
+    }
+    $.ajax({
+      url: url,
+      type: type,
+      data: $("form").serialize()
+    }).done(function (resposta) {
+      if (resposta.Titulo != "") {
+        toastr.success('Registro efetuado com sucesso!', manter + ' Post', {
           timeOut: 6000
         });
-        setTimeout(window.location.href = "/autor/", 2000);
-        $("#spinnerLoading").hide();
-      }).fail(function (xhr, textStatus) {
-        if (textStatus == 'error') {
-          toastr.error('Erro ao tentar Excluir', 'Excluir Autor', {
-            timeOut: 6000
-          });
+        if (manter != 'Atualizar') {
+          $("#titulo").val("");
+          $("#resumo").val("");
+          $("#conteudo").val("");
         }
-        $("#spinnerLoading").hide();
-      });
-    }
+        $(".validarErro").removeClass("is-invalid");
+        $(".invalid-feedback").text("");
+        $(".invalid-feedback").hide();
+      }
+      $("#spinnerLoading").hide();
+    }).fail(function (xhr, textStatus) {
+      if (textStatus == 'error') {
+        var json = $.parseJSON(xhr.responseText);
+        var result = json.error.message;
+        var msg = [];
+        $.each(result, function (index, value) {
+          if (index == 'Codl') {
+            msg.push(value[0]);
+          } else {
+            $("#" + index).addClass("is-invalid");
+            $("#" + index + "-error").text(value[0]);
+            $("#" + index + "-error").show();
+            msg.push(value[0]);
+          }
+        });
+        toastr.error('Erro ao tentar ' + manter + ':<br>' + msg.join("<br>"), manter + ' Post', {
+          timeOut: 6000
+        });
+      }
+      $("#spinnerLoading").hide();
+    });
   });
 });
 
 /***/ }),
 
-/***/ 3:
-/*!*************************************************!*\
-  !*** multi ./resources/js/autor/listarAutor.js ***!
-  \*************************************************/
+/***/ 8:
+/*!***********************************************!*\
+  !*** multi ./resources/js/post/manterPost.js ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/resources/js/autor/listarAutor.js */"./resources/js/autor/listarAutor.js");
+module.exports = __webpack_require__(/*! /var/www/html/resources/js/post/manterPost.js */"./resources/js/post/manterPost.js");
 
 
 /***/ })

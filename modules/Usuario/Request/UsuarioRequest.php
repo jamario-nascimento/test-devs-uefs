@@ -71,7 +71,7 @@ class UsuarioRequest extends FormRequest
             $rules_update = [
                 'id' => [
                     'required',
-                    'unique:Usuario,id,' . $this->CodAs . ',id',
+                    'unique:Usuario,id,' . $this->id . ',id',
                     'exists:Usuario,id',
                     'max:11'
                 ],

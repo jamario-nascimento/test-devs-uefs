@@ -9,10 +9,10 @@ $(function () {
         $("#spinnerLoading").show();
         var manter = $("#manter").val();
         if (manter == 'Atualizar') {
-            var url = "/api/autor/update";
+            var url = "/api/tag/update";
             var type = "PUT";
         } else {
-            var url = "/api/autor/create";
+            var url = "/api/tag/create";
             var type = "POST";
         }
 
@@ -21,10 +21,10 @@ $(function () {
             type: type,
             data: $("form").serialize()
         }).done(function (resposta) {
-            if (resposta.Nome != "") {
-                toastr.success('Registro efetuado com sucesso!', manter + ' Autor', { timeOut: 6000 });
+            if (resposta.Slug != "") {
+                toastr.success('Registro efetuado com sucesso!', manter + ' Tag', { timeOut: 6000 });
                 if (manter != 'Atualizar') {
-                    $("#Nome").val("");
+                    $("#Slug").val("");
                 }
 
                 $(".validarErro").removeClass("is-invalid");
@@ -38,7 +38,7 @@ $(function () {
               var result = json.error.message;
               var msg = [];
               $.each(result,function(index, value){
-                  if (index == 'CodAu') {
+                  if (index == 'id') {
                       msg.push(value[0]);
                   } else {
                       $("#"+index).addClass("is-invalid");
@@ -48,7 +48,7 @@ $(function () {
                   }
               });
 
-              toastr.error('Erro ao tentar ' + manter + ':<br>'+msg.join("<br>"), manter + ' Autor', {
+              toastr.error('Erro ao tentar ' + manter + ':<br>'+msg.join("<br>"), manter + ' Tag', {
                 timeOut: 6000
               });
             }

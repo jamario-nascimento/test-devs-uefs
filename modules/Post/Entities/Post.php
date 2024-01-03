@@ -9,7 +9,6 @@ use Modules\Usuario\Entities\Usuario;
 class Post extends Model
 {
     public $incrementing = true;
-    public $timestamps = false;
 
     protected $table        = 'Post';
     protected $primaryKey   = 'id';

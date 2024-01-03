@@ -33,14 +33,14 @@ class UsuarioService implements UsuarioServiceInterface
 
     public function update(array $usuario)
     {
-        $update = $this->find($usuario['CodAs']);
+        $update = $this->find($usuario['id']);
         $update['Descricao'] = $usuario['Descricao'];
         return $this->usuarioRepository->update($update);
     }
 
     public function delete($usuario)
     {
-        $delete = $this->find($usuario['CodAs']);
+        $delete = $this->find($usuario['id']);
         return $this->usuarioRepository->delete($delete);
     }
 }

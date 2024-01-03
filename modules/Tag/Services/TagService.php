@@ -8,39 +8,39 @@ use Modules\Tag\Services\Interfaces\TagServiceInterface;
 class TagService implements TagServiceInterface
 {
 
-    protected $TagRepository;
+    protected $tagRepository;
 
-    public function __construct(TagRepositoryInterface $TagRepository)
+    public function __construct(TagRepositoryInterface $tagRepository)
     {
-        $this->TagRepository = $TagRepository;
+        $this->tagRepository = $tagRepository;
     }
 
     public function list()
     {
-        return $this->TagRepository->all();
+        return $this->tagRepository->all();
     }
 
     public function find($id)
     {
-        return $this->TagRepository->find($id);
+        return $this->tagRepository->find($id);
     }
 
-    public function create(array $Tag)
+    public function create(array $tag)
     {
-        $Tag['Slug'] = $Tag['Slug'];
-        return $this->TagRepository->create($Tag);
+        $tag['Slug'] = $tag['Slug'];
+        return $this->tagRepository->create($tag);
     }
 
-    public function update(array $Tag)
+    public function update(array $tag)
     {
-        $update = $this->find($Tag['id']);
-        $update['Slug'] = $Tag['Slug'];
-        return $this->TagRepository->update($update);
+        $update = $this->find($tag['id']);
+        $update['Slug'] = $tag['Slug'];
+        return $this->tagRepository->update($update);
     }
 
-    public function delete($Tag)
+    public function delete($tag)
     {
-        $delete = $this->find($Tag['id']);
-        return $this->TagRepository->delete($delete);
+        $delete = $this->find($tag['id']);
+        return $this->tagRepository->delete($delete);
     }
 }

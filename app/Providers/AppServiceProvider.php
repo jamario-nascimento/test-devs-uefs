@@ -26,9 +26,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(\Modules\Tag\Repositories\Interfaces\TagRepositoryInterface::class, \Modules\Tag\Repositories\TagRepository::class);
         $this->app->bind(\Modules\Tag\Services\Interfaces\TagServiceInterface::class, \Modules\Tag\Services\TagService::class);
 
-        // Tag
-        $this->app->bind(\Modules\Tag\Repositories\Interfaces\TagRepositoryInterface::class, \Modules\Tag\Repositories\TagRepository::class);
-        $this->app->bind(\Modules\Tag\Services\Interfaces\TagServiceInterface::class, \Modules\Tag\Services\TagService::class);
+        // Post
+        $this->app->bind(\Modules\Post\Repositories\Interfaces\PostRepositoryInterface::class, \Modules\Post\Repositories\PostRepository::class);
+        $this->app->bind(\Modules\Post\Services\Interfaces\PostServiceInterface::class, \Modules\Post\Services\PostService::class);
     }
 
     /**

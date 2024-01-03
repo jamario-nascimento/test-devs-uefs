@@ -81,15 +81,15 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/livro/listarLivro.js":
-/*!*******************************************!*\
-  !*** ./resources/js/livro/listarLivro.js ***!
-  \*******************************************/
+/***/ "./resources/js/tag/listarTag.js":
+/*!***************************************!*\
+  !*** ./resources/js/tag/listarTag.js ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -99,20 +99,20 @@ $(function () {
     $("#spinnerLoading").show();
     if (confirm("Deseja realmente excluir este registro?")) {
       $.ajax({
-        url: "/api/livro/delete",
+        url: "/api/tag/delete",
         type: "DELETE",
         data: {
-          Codl: $(this).attr('cod')
+          id: $(this).attr('cod')
         }
       }).done(function (resposta) {
-        toastr.success('Registro Excluído com sucesso!', 'Excluir Livro', {
+        toastr.success('Registro Excluído com sucesso!', 'Excluir Tag', {
           timeOut: 6000
         });
-        setTimeout(window.location.href = "/livro/", 2000);
+        setTimeout(window.location.href = "/tag/", 2000);
         $("#spinnerLoading").hide();
       }).fail(function (xhr, textStatus) {
         if (textStatus == 'error') {
-          toastr.error('Erro ao tentar Excluir', 'Excluir Livro', {
+          toastr.error('Erro ao tentar Excluir', 'Excluir Tag', {
             timeOut: 6000
           });
         }
@@ -124,14 +124,14 @@ $(function () {
 
 /***/ }),
 
-/***/ 7:
-/*!*************************************************!*\
-  !*** multi ./resources/js/livro/listarLivro.js ***!
-  \*************************************************/
+/***/ 3:
+/*!*********************************************!*\
+  !*** multi ./resources/js/tag/listarTag.js ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/resources/js/livro/listarLivro.js */"./resources/js/livro/listarLivro.js");
+module.exports = __webpack_require__(/*! /var/www/html/resources/js/tag/listarTag.js */"./resources/js/tag/listarTag.js");
 
 
 /***/ })

@@ -81,84 +81,57 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/assunto/manterAssunto.js":
-/*!***********************************************!*\
-  !*** ./resources/js/assunto/manterAssunto.js ***!
-  \***********************************************/
+/***/ "./resources/js/post/listarPost.js":
+/*!*****************************************!*\
+  !*** ./resources/js/post/listarPost.js ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 $(function () {
-  $('form').on('submit', function (e) {
+  $('.excluir').on('click', function (e) {
     e.preventDefault();
-    $(".validarErro").removeClass("is-invalid");
-    $(".invalid-feedback").text("");
-    $(".invalid-feedback").hide();
     $("#spinnerLoading").show();
-    var manter = $("#manter").val();
-    if (manter == 'Atualizar') {
-      var url = "/api/assunto/update";
-      var type = "PUT";
-    } else {
-      var url = "/api/assunto/create";
-      var type = "POST";
-    }
-    $.ajax({
-      url: url,
-      type: type,
-      data: $("form").serialize()
-    }).done(function (resposta) {
-      if (resposta.Descricao != "") {
-        toastr.success('Registro efetuado com sucesso!', manter + ' Assunto', {
-          timeOut: 6000
-        });
-        if (manter != 'Atualizar') {
-          $("#Descricao").val("");
+    if (confirm("Deseja realmente excluir este registro?")) {
+      $.ajax({
+        url: "/api/post/delete",
+        type: "DELETE",
+        data: {
+          id: $(this).attr('id')
         }
-        $(".validarErro").removeClass("is-invalid");
-        $(".invalid-feedback").text("");
-        $(".invalid-feedback").hide();
-      }
-      $("#spinnerLoading").hide();
-    }).fail(function (xhr, textStatus) {
-      if (textStatus == 'error') {
-        var json = $.parseJSON(xhr.responseText);
-        var result = json.error.message;
-        var msg = [];
-        $.each(result, function (index, value) {
-          if (index == 'CodAs') {
-            msg.push(value[0]);
-          } else {
-            $("#" + index).addClass("is-invalid");
-            $("#" + index + "-error").text(value[0]);
-            $("#" + index + "-error").show();
-            msg.push(value[0]);
-          }
-        });
-        toastr.error('Erro ao tentar ' + manter + ':<br>' + msg.join("<br>"), manter + ' Assunto', {
+      }).done(function (resposta) {
+        toastr.success('Registro Excluído com sucesso!', 'Excluir Post', {
           timeOut: 6000
         });
-      }
-      $("#spinnerLoading").hide();
-    });
+        setTimeout(window.location.href = "/post/", 2000);
+        $("#spinnerLoading").hide();
+      }).fail(function (xhr, textStatus) {
+        if (textStatus == 'error') {
+          toastr.error('Erro ao tentar Excluir', 'Excluir Post', {
+            timeOut: 6000
+          });
+        }
+        $("#spinnerLoading").hide();
+      });
+    }
   });
 });
 
 /***/ }),
 
-/***/ 6:
-/*!*****************************************************!*\
-  !*** multi ./resources/js/assunto/manterAssunto.js ***!
-  \*****************************************************/
+/***/ 7:
+/*!***********************************************!*\
+  !*** multi ./resources/js/post/listarPost.js ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/resources/js/assunto/manterAssunto.js */"./resources/js/assunto/manterAssunto.js");
+module.exports = __webpack_require__(/*! /var/www/html/resources/js/post/listarPost.js */"./resources/js/post/listarPost.js");
 
 
 /***/ })

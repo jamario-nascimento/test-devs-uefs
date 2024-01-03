@@ -6,19 +6,19 @@ $(function () {
 
         if(confirm("Deseja realmente excluir este registro?")) {
             $.ajax({
-                url: "/api/livro/delete",
+                url: "/api/post/delete",
                 type: "DELETE",
-                data: {Codl:$(this).attr('cod')}
+                data: {id:$(this).attr('id')}
             }).done(function (resposta) {
 
-            toastr.success('Registro Excluído com sucesso!', 'Excluir Livro', { timeOut: 6000 });
+            toastr.success('Registro Excluído com sucesso!', 'Excluir Post', { timeOut: 6000 });
 
-            setTimeout(window.location.href = "/livro/", 2000);
+            setTimeout(window.location.href = "/post/", 2000);
 
             $("#spinnerLoading").hide();
             }).fail(function (xhr, textStatus) {
                 if(textStatus == 'error'){
-                    toastr.error('Erro ao tentar Excluir', 'Excluir Livro', { timeOut: 6000 });
+                    toastr.error('Erro ao tentar Excluir', 'Excluir Post', { timeOut: 6000 });
                 }
                 $("#spinnerLoading").hide();
             });

@@ -7,9 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     public $incrementing = true;
-    public $timestamps = false;
 
-    protected $table        = 'Tag';
+    protected $table        = 'tag';
     protected $primaryKey   = 'id';
     public $fillable = [
         'Slug'

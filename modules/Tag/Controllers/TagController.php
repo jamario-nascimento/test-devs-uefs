@@ -25,8 +25,8 @@ class TagController extends Controller
     public function index()
     {
         try {
-            $Tages = $this->service->list();
-            return view('Tag.listar', compact('Tags'));
+            $tags = $this->service->list();
+            return view('tag.listar', compact('tags'));
         } catch (Exception $ex) {
             report($ex);
             return response()->json(['message' => 'Falha ao efetuar a listagem Web'], 500);
@@ -60,12 +60,12 @@ class TagController extends Controller
                 // Monta retorno de campos para a tela.
                 $dados = array(
                     'title_page'    => 'Atualizar Tag',
-                    'Tag'         => $tag,
+                    'tag'         => $tag,
                     'MANTER'        => 'Atualizar'
                 );
 
                 // Retorna para a página de edição.
-                return view('Tag/manter', $dados);
+                return view('tag/manter', $dados);
             }
         } catch (Exception $ex) {
             report($ex);
@@ -75,7 +75,7 @@ class TagController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/api/Tag/list",
+     *     path="/api/tag/list",
      *     tags={"tag"},
      *     summary="Listar os Registros",
      *     @OA\Response(response="200", description="Success"),
@@ -96,11 +96,11 @@ class TagController extends Controller
 
     /**
      * @OA\Post(
-     ** path="/api/Tag/create",
+     ** path="/api/tag/create",
      *   tags={"tag"},
      *   summary="Criar Registro",
      *   @OA\Parameter(
-     *      name="Nome",
+     *      name="slug",
      *      in="query",
      *      required=true,
      *      @OA\Schema(type="string")
@@ -123,7 +123,7 @@ class TagController extends Controller
 
     /**
      * @OA\Put(
-     ** path="/api/Tag/update",
+     ** path="/api/tag/update",
      *   tags={"tag"},
      *   summary="Atualizar Registro",
      *   @OA\Parameter(
@@ -133,7 +133,7 @@ class TagController extends Controller
      *      @OA\Schema(type="integer")
      *   ),
      *   @OA\Parameter(
-     *      name="Nome",
+     *      name="Slug",
      *      in="query",
      *      required=true,
      *      @OA\Schema(type="string")
@@ -158,7 +158,7 @@ class TagController extends Controller
 
     /**
      * @OA\Delete(
-     ** path="/api/Tag/delete",
+     ** path="/api/tag/delete",
      *   tags={"tag"},
      *   summary="Excluir Registro",
      *   @OA\Parameter(

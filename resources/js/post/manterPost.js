@@ -9,10 +9,10 @@ $(function () {
         $("#spinnerLoading").show();
         var manter = $("#manter").val();
         if (manter == 'Atualizar') {
-            var url = "/api/assunto/update";
+            var url = "/api/post/update";
             var type = "PUT";
         } else {
-            var url = "/api/assunto/create";
+            var url = "/api/post/create";
             var type = "POST";
         }
 
@@ -21,10 +21,12 @@ $(function () {
             type: type,
             data: $("form").serialize()
         }).done(function (resposta) {
-            if (resposta.Descricao != "") {
-                toastr.success('Registro efetuado com sucesso!', manter + ' Assunto', { timeOut: 6000 });
+            if (resposta.Titulo != "") {
+                toastr.success('Registro efetuado com sucesso!', manter + ' Post', { timeOut: 6000 });
                 if (manter != 'Atualizar') {
-                    $("#Descricao").val("");
+                    $("#titulo").val("");
+                    $("#resumo").val("");
+                    $("#conteudo").val("");
                 }
 
                 $(".validarErro").removeClass("is-invalid");
@@ -38,7 +40,7 @@ $(function () {
               var result = json.error.message;
               var msg = [];
               $.each(result,function(index, value){
-                  if (index == 'CodAs') {
+                  if (index == 'Codl') {
                       msg.push(value[0]);
                   } else {
                       $("#"+index).addClass("is-invalid");
@@ -48,7 +50,7 @@ $(function () {
                   }
               });
 
-              toastr.error('Erro ao tentar ' + manter + ':<br>'+msg.join("<br>"), manter + ' Assunto', {
+              toastr.error('Erro ao tentar ' + manter + ':<br>'+msg.join("<br>"), manter + ' Post', {
                 timeOut: 6000
               });
             }

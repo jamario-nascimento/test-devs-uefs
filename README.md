@@ -77,27 +77,22 @@ docker-compose exec php-fpm php artisan migrate
 
 ## Teste de código
 
-docker-compose exec php-fpm php artisan test 
-
+docker-compose exec php-fpm php artisan test
 
 ## Documentação - Swagger API
 
- - [Swagger API](http://localhost/api/)
- * Observação: É preciso Gerar a doc do swagger
+- [Swagger API](http://localhost/api/)
+* Observação: É preciso Gerar a doc do swagger
  http://localhost/api/generation.php
-
-
 
 ## Sobre o Laravel
 
 Laravel é um framework de aplicações web com sintaxe expressiva e elegante. Acreditamos que o desenvolvimento deve ser uma experiência agradável e criativa para ser verdadeiramente gratificante. Ele facilita o desenvolvimento facilitando tarefas comuns usadas em muitos projetos da web
 
-
 ## Documentação
 
- - [Documentação](https://laravel.com/docs)
- - [Laracasts](https://laracasts.com)
-
+- [Documentação](https://laravel.com/docs)
+- [Laracasts](https://laracasts.com)
 
 ## Licença
 

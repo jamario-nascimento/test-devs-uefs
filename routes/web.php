@@ -15,25 +15,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
 
-Route::prefix('/autor')->group(function () {
-    Route::get('/', '\Modules\Autor\Controllers\AutorController@index')->name('indexAutor');
-    Route::view('/cadastrar', 'autor/manter')->name('cadastrarAutor');
-    Route::get('/editar/{CodAu?}','\Modules\Autor\Controllers\AutorController@edit')->name('editarAutor');
+Route::prefix('/tag')->group(function () {
+    Route::get('/', '\Modules\Tag\Controllers\TagController@index')->name('indexTag');
+    Route::view('/cadastrar', 'tag/manter')->name('cadastrarTag');
+    Route::get('/editar/{id?}','\Modules\Tag\Controllers\TagController@edit')->name('editarTag');
 });
 
-Route::prefix('/assunto')->group(function () {
-    Route::get('/', '\Modules\Assunto\Controllers\AssuntoController@index')->name('indexAssunto');
-    Route::view('/cadastrar', 'assunto/manter')->name('cadastrarAssunto');
-    Route::get('/editar/{CodAs?}','\Modules\Assunto\Controllers\AssuntoController@edit')->name('editarAssunto');
+Route::prefix('/usuario')->group(function () {
+    Route::get('/', '\Modules\Usuario\Controllers\UsuarioController@index')->name('indexUsuario');
+    Route::view('/cadastrar', 'Usuario/manter')->name('cadastrarUsuario');
+    Route::get('/editar/{id?}','\Modules\Usuario\Controllers\UsuarioController@edit')->name('editarUsuario');
 });
 
-Route::prefix('/livro')->group(function () {
-    Route::get('/', '\Modules\Livro\Controllers\LivroController@index')->name('indexLivro');
-    Route::get('/register', '\Modules\Livro\Controllers\LivroController@register')->name('cadastrarLivro');
-    Route::get('/editar/{Codl?}','\Modules\Livro\Controllers\LivroController@edit')->name('editarLivro');
-});
-
-Route::prefix('/relatorio')->group(function () {
-    Route::get('/', '\Modules\relatorio\Controllers\RelatorioController@index')->name('indexRelatorio');
-    Route::get('/exportar', '\Modules\relatorio\Controllers\RelatorioController@exportar')->name('exportarRelatorio');
+Route::prefix('/post')->group(function () {
+    Route::get('/', '\Modules\Post\Controllers\PostController@index')->name('indexPost');
+    Route::get('/register', '\Modules\Post\Controllers\PostController@register')->name('cadastrarPost');
+    Route::get('/editar/{id?}','\Modules\Post\Controllers\PostController@edit')->name('editarPost');
 });

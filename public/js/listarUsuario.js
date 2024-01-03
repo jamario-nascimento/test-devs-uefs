@@ -81,88 +81,57 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/livro/manterLivro.js":
-/*!*******************************************!*\
-  !*** ./resources/js/livro/manterLivro.js ***!
-  \*******************************************/
+/***/ "./resources/js/usuario/listarUsuario.js":
+/*!***********************************************!*\
+  !*** ./resources/js/usuario/listarUsuario.js ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 $(function () {
-  $('form').on('submit', function (e) {
+  $('.excluir').on('click', function (e) {
     e.preventDefault();
-    $(".validarErro").removeClass("is-invalid");
-    $(".invalid-feedback").text("");
-    $(".invalid-feedback").hide();
     $("#spinnerLoading").show();
-    var manter = $("#manter").val();
-    if (manter == 'Atualizar') {
-      var url = "/api/livro/update";
-      var type = "PUT";
-    } else {
-      var url = "/api/livro/create";
-      var type = "POST";
-    }
-    $.ajax({
-      url: url,
-      type: type,
-      data: $("form").serialize()
-    }).done(function (resposta) {
-      if (resposta.Titulo != "") {
-        toastr.success('Registro efetuado com sucesso!', manter + ' Livro', {
-          timeOut: 6000
-        });
-        if (manter != 'Atualizar') {
-          $("#Titulo").val("");
-          $("#Editora").val("");
-          $("#Edicao").val("");
-          $("#AnoPublicacao").val("");
-          $("#Valor").val("");
+    if (confirm("Deseja realmente excluir este registro?")) {
+      $.ajax({
+        url: "/api/usuario/delete",
+        type: "DELETE",
+        data: {
+          id: $(this).attr('id')
         }
-        $(".validarErro").removeClass("is-invalid");
-        $(".invalid-feedback").text("");
-        $(".invalid-feedback").hide();
-      }
-      $("#spinnerLoading").hide();
-    }).fail(function (xhr, textStatus) {
-      if (textStatus == 'error') {
-        var json = $.parseJSON(xhr.responseText);
-        var result = json.error.message;
-        var msg = [];
-        $.each(result, function (index, value) {
-          if (index == 'Codl') {
-            msg.push(value[0]);
-          } else {
-            $("#" + index).addClass("is-invalid");
-            $("#" + index + "-error").text(value[0]);
-            $("#" + index + "-error").show();
-            msg.push(value[0]);
-          }
-        });
-        toastr.error('Erro ao tentar ' + manter + ':<br>' + msg.join("<br>"), manter + ' Livro', {
+      }).done(function (resposta) {
+        toastr.success('Registro Excluído com sucesso!', 'Excluir Usuário', {
           timeOut: 6000
         });
-      }
-      $("#spinnerLoading").hide();
-    });
+        setTimeout(window.location.href = "/usuario/", 2000);
+        $("#spinnerLoading").hide();
+      }).fail(function (xhr, textStatus) {
+        if (textStatus == 'error') {
+          toastr.error('Erro ao tentar Excluir', 'Excluir Usuário', {
+            timeOut: 6000
+          });
+        }
+        $("#spinnerLoading").hide();
+      });
+    }
   });
 });
 
 /***/ }),
 
-/***/ 8:
-/*!*************************************************!*\
-  !*** multi ./resources/js/livro/manterLivro.js ***!
-  \*************************************************/
+/***/ 5:
+/*!*****************************************************!*\
+  !*** multi ./resources/js/usuario/listarUsuario.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/resources/js/livro/manterLivro.js */"./resources/js/livro/manterLivro.js");
+module.exports = __webpack_require__(/*! /var/www/html/resources/js/usuario/listarUsuario.js */"./resources/js/usuario/listarUsuario.js");
 
 
 /***/ })

@@ -81,57 +81,84 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/assunto/listarAssunto.js":
-/*!***********************************************!*\
-  !*** ./resources/js/assunto/listarAssunto.js ***!
-  \***********************************************/
+/***/ "./resources/js/tag/manterTag.js":
+/*!***************************************!*\
+  !*** ./resources/js/tag/manterTag.js ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
 $(function () {
-  $('.excluir').on('click', function (e) {
+  $('form').on('submit', function (e) {
     e.preventDefault();
+    $(".validarErro").removeClass("is-invalid");
+    $(".invalid-feedback").text("");
+    $(".invalid-feedback").hide();
     $("#spinnerLoading").show();
-    if (confirm("Deseja realmente excluir este registro?")) {
-      $.ajax({
-        url: "/api/assunto/delete",
-        type: "DELETE",
-        data: {
-          CodAs: $(this).attr('cod')
-        }
-      }).done(function (resposta) {
-        toastr.success('Registro Excluído com sucesso!', 'Excluir Assunto', {
+    var manter = $("#manter").val();
+    if (manter == 'Atualizar') {
+      var url = "/api/tag/update";
+      var type = "PUT";
+    } else {
+      var url = "/api/tag/create";
+      var type = "POST";
+    }
+    $.ajax({
+      url: url,
+      type: type,
+      data: $("form").serialize()
+    }).done(function (resposta) {
+      if (resposta.Slug != "") {
+        toastr.success('Registro efetuado com sucesso!', manter + ' Tag', {
           timeOut: 6000
         });
-        setTimeout(window.location.href = "/assunto/", 2000);
-        $("#spinnerLoading").hide();
-      }).fail(function (xhr, textStatus) {
-        if (textStatus == 'error') {
-          toastr.error('Erro ao tentar Excluir', 'Excluir Assunto', {
-            timeOut: 6000
-          });
+        if (manter != 'Atualizar') {
+          $("#Slug").val("");
         }
-        $("#spinnerLoading").hide();
-      });
-    }
+        $(".validarErro").removeClass("is-invalid");
+        $(".invalid-feedback").text("");
+        $(".invalid-feedback").hide();
+      }
+      $("#spinnerLoading").hide();
+    }).fail(function (xhr, textStatus) {
+      if (textStatus == 'error') {
+        var json = $.parseJSON(xhr.responseText);
+        var result = json.error.message;
+        var msg = [];
+        $.each(result, function (index, value) {
+          if (index == 'id') {
+            msg.push(value[0]);
+          } else {
+            $("#" + index).addClass("is-invalid");
+            $("#" + index + "-error").text(value[0]);
+            $("#" + index + "-error").show();
+            msg.push(value[0]);
+          }
+        });
+        toastr.error('Erro ao tentar ' + manter + ':<br>' + msg.join("<br>"), manter + ' Tag', {
+          timeOut: 6000
+        });
+      }
+      $("#spinnerLoading").hide();
+    });
   });
 });
 
 /***/ }),
 
-/***/ 5:
-/*!*****************************************************!*\
-  !*** multi ./resources/js/assunto/listarAssunto.js ***!
-  \*****************************************************/
+/***/ 4:
+/*!*********************************************!*\
+  !*** multi ./resources/js/tag/manterTag.js ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /var/www/html/resources/js/assunto/listarAssunto.js */"./resources/js/assunto/listarAssunto.js");
+module.exports = __webpack_require__(/*! /var/www/html/resources/js/tag/manterTag.js */"./resources/js/tag/manterTag.js");
 
 
 /***/ })

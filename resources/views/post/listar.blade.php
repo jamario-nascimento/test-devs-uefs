@@ -7,9 +7,9 @@
 
     <div class="row">
         <div class="form-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
-            <h3 class="m-0" style="float:left"><i class="fa fa-fw fa-book"></i> Lista de Livros</h3>
+            <h3 class="m-0" style="float:left"><i class="fa fa-fw fa-book"></i> Lista de Posts</h3>
 
-            <a title="Adicionar" href="{{ route('cadastrarLivro') }}"  class="btn btn-primary float-right">
+            <a title="Adicionar" href="{{ route('cadastrarPost') }}"  class="btn btn-primary float-right">
                 <i class="fa fa-plus"></i>
                 Adicionar
             </a>
@@ -21,7 +21,7 @@
     @endpush
 
     @push('js')
-        <script src="{{ asset('js/listarLivro.js') }}"></script>
+        <script src="{{ asset('js/listarPost.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     @endpush
 @stop
@@ -30,39 +30,35 @@
 
     @include('componentes.loading')
 
-    @if (!empty($livros) && count($livros) > 0)
+    @if (!empty($post) && count($post) > 0)
         <div class="card">
             <div class="card-body">
                 <table id="table" class="table table-striped">
                     <thead class="thead-light">
                         <tr class="text-secondary">
-                            <th class="text-center" scope="col">Código</th>
-                            <th scope="col">Titulo</th>
-                            <th scope="col">Editora</th>
-                            <th scope="col">Edição</th>
-                            <th scope="col">Ano Pub.</th>
-                            <th scope="col">Valor</th>
+                            <th class="text-center" scope="col">ID</th>
+                            <th scope="col">Título</th>
+                            <th scope="col">Resumo</th>
+                            <th scope="col">Autor</th>
                             <th class="text-center" scope="col">Opções</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        @if (!empty($livros))
-                            @foreach ($livros as $p)
+                        @if (!empty($post))
+                            @foreach ($post as $p)
                                 <tr>
-                                    <td class="text-center">{{ $p->Codl }}</td>
-                                    <td>{{ $p->Titulo }}</td>
-                                    <td>{{ $p->Editora }}</td>
-                                    <td>{{ $p->Edicao }}</td>
-                                    <td>{{ $p->AnoPublicacao }}</td>
-                                    <td>{{ number_format($p->Valor, 2, ',', '.') }}</td>
+                                    <td class="text-center">{{ $p->id }}</td>
+                                    <td>{{ $p->titulo }}</td>
+                                    <td>{{ $p->resumo }}</td>
+                                    <td>{{ $p->autor }}</td>
 
                                     <td class="text-center">
-                                        <a title="Editar" href="{{ route('editarLivro', $p->Codl) }}" class="mr-3">
+                                        <a title="Editar" href="{{ route('editarPost', $p->id) }}" class="mr-3">
                                             <i class="fa fa-pen"></i>
                                         </a>
 
-                                        <a id="excluir" class="excluir" title="Excluir" href="javascript:void(0)" cod="{{ $p->Codl }}">
+                                        <a id="excluir" class="excluir" title="Excluir" href="javascript:void(0)" cod="{{ $p->id }}">
                                             <i class="fa fa-trash"></i>
                                         </a>
                                     </td>

@@ -14,23 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('/autor')->group(function () {
-    Route::get('/list', '\Modules\Autor\Controllers\AutorController@list')->name('listAutor');
-    Route::post('/create', '\Modules\Autor\Controllers\AutorController@create')->name('createAutor');
-    Route::put('/update', '\Modules\Autor\Controllers\AutorController@update')->name('updateAutor');
-    Route::delete('/delete', '\Modules\Autor\Controllers\AutorController@delete')->name('deleteAutor');
+Route::prefix('/tag')->group(function () {
+    Route::get('/list', '\Modules\Tag\Controllers\TagController@list')->name('listTag');
+    Route::post('/create', '\Modules\Tag\Controllers\TagController@create')->name('createTag');
+    Route::put('/update', '\Modules\Tag\Controllers\TagController@update')->name('updateTag');
+    Route::delete('/delete', '\Modules\Tag\Controllers\TagController@delete')->name('deleteTag');
 });
 
-Route::prefix('/assunto')->group(function () {
-    Route::get('/list', '\Modules\Assunto\Controllers\AssuntoController@list')->name('listAssunto');
-    Route::post('/create', '\Modules\Assunto\Controllers\AssuntoController@create')->name('createAssunto');
-    Route::put('/update', '\Modules\Assunto\Controllers\AssuntoController@update')->name('updateAssunto');
-    Route::delete('/delete', '\Modules\Assunto\Controllers\AssuntoController@delete')->name('deleteAssunto');
+Route::prefix('/usuario')->group(function () {
+    Route::get('/list', '\Modules\Usuario\Controllers\UsuarioController@list')->name('listUsuario');
+    Route::post('/create', '\Modules\Usuario\Controllers\UsuarioController@create')->name('createUsuario');
+    Route::put('/update', '\Modules\Usuario\Controllers\UsuarioController@update')->name('updateUsuario');
+    Route::delete('/delete', '\Modules\Usuario\Controllers\UsuarioController@delete')->name('deleteUsuario');
 });
 
-Route::prefix('/livro')->group(function () {
-    Route::get('/list', '\Modules\Livro\Controllers\LivroController@list')->name('listLivro');
-    Route::post('/create', '\Modules\Livro\Controllers\LivroController@create')->name('createLivro');
-    Route::put('/update', '\Modules\Livro\Controllers\LivroController@update')->name('updateLivro');
-    Route::delete('/delete', '\Modules\Livro\Controllers\LivroController@delete')->name('deleteLivro');
+Route::prefix('/post')->group(function () {
+    Route::get('/list', '\Modules\Livro\Controllers\PostController@list')->name('listPost');
+    Route::post('/create', '\Modules\Post\Controllers\PostController@create')->name('createPost');
+    Route::put('/update', '\Modules\Post\Controllers\PostController@update')->name('updatePost');
+    Route::delete('/delete', '\Modules\Post\Controllers\PostController@delete')->name('deletePost');
 });
