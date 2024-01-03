@@ -18,21 +18,17 @@ class AppServiceProvider extends ServiceProvider
         // Base
         $this->app->bind(BaseRepositoryInterface::class, BaseRepository::class);
 
-        // Autor
-        $this->app->bind(\Modules\Autor\Repositories\Interfaces\AutorRepositoryInterface::class, \Modules\Autor\Repositories\AutorRepository::class);
-        $this->app->bind(\Modules\Autor\Services\Interfaces\AutorServiceInterface::class, \Modules\Autor\Services\AutorService::class);
+        // Usuario
+        $this->app->bind(\Modules\Usuario\Repositories\Interfaces\UsuarioRepositoryInterface::class, \Modules\Usuario\Repositories\UsuarioRepository::class);
+        $this->app->bind(\Modules\Usuario\Services\Interfaces\UsuarioServiceInterface::class, \Modules\Usuario\Services\UsuarioService::class);
 
-        // Assunto
-        $this->app->bind(\Modules\Assunto\Repositories\Interfaces\AssuntoRepositoryInterface::class, \Modules\Assunto\Repositories\AssuntoRepository::class);
-        $this->app->bind(\Modules\Assunto\Services\Interfaces\AssuntoServiceInterface::class, \Modules\Assunto\Services\AssuntoService::class);
+        // Tag
+        $this->app->bind(\Modules\Tag\Repositories\Interfaces\TagRepositoryInterface::class, \Modules\Tag\Repositories\TagRepository::class);
+        $this->app->bind(\Modules\Tag\Services\Interfaces\TagServiceInterface::class, \Modules\Tag\Services\TagService::class);
 
-        // Livro
-        $this->app->bind(\Modules\Livro\Repositories\Interfaces\LivroRepositoryInterface::class, \Modules\Livro\Repositories\LivroRepository::class);
-        $this->app->bind(\Modules\Livro\Services\Interfaces\LivroServiceInterface::class, \Modules\Livro\Services\LivroService::class);
-
-        // Relatorio
-        $this->app->bind(\Modules\Relatorio\Repositories\Interfaces\RelatorioRepositoryInterface::class, \Modules\Relatorio\Repositories\RelatorioRepository::class);
-        $this->app->bind(\Modules\Relatorio\Services\Interfaces\RelatorioServiceInterface::class, \Modules\Relatorio\Services\RelatorioService::class);
+        // Tag
+        $this->app->bind(\Modules\Tag\Repositories\Interfaces\TagRepositoryInterface::class, \Modules\Tag\Repositories\TagRepository::class);
+        $this->app->bind(\Modules\Tag\Services\Interfaces\TagServiceInterface::class, \Modules\Tag\Services\TagService::class);
     }
 
     /**

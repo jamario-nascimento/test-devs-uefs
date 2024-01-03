@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'Livros',
+    'title' => 'Posts',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -308,25 +308,20 @@ return [
             'icon'        => 'fa fa-fw fa-home',
         ],
         [
-            'text'        => 'Livro',
-            'url'         => 'livro/',
+            'text'        => 'Post',
+            'url'         => 'post/',
             'icon'        => 'fa fa-fw fa-book',
         ],
         [
-            'text'        => 'Assunto',
-            'url'         => 'assunto/',
+            'text'        => 'Tag',
+            'url'         => 'tag/',
             'icon'        => 'fa fa-fw fa-comment',
         ],
         [
-            'text'        => 'Autor',
-            'url'         => 'autor/',
+            'text'        => 'Usuário',
+            'url'         => 'usuario/',
             'icon'        => 'fa fa-fw fa-address-book',
-        ],
-        [
-            'text'        => 'Relatório',
-            'url'         => 'relatorio/',
-            'icon'        => 'fa fa-fw fa-star',
-        ],
+        ]
     ],
 
     /*
