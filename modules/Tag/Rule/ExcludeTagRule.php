@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Autor\Rule;
+namespace Modules\Tag\Rule;
 
 use Illuminate\Contracts\Validation\Rule;
 
-class ExcludeAutorRule implements Rule
+class ExcludeTagRule implements Rule
 {
     /**
      * Create a new rule instance.
@@ -26,7 +26,7 @@ class ExcludeAutorRule implements Rule
     public function passes($attribute, $value)
     {
         // check if the record is already in use.
-        //$result = LivroAutor::where('autor_codau', $value)->count();
+        //$result = PostTag::where('tag_id', $value)->count();
         //if ($result > 0) return false;
 
         return true;

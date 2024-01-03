@@ -1,22 +1,20 @@
 <?php
 
-namespace Modules\Autor\Controllers;
+namespace Modules\Tag\Controllers;
 
 use App\Http\Controllers\Controller;
 
-use Modules\Autor\Request\AutorRequest;
-use Modules\Autor\Services\Interfaces\AutorServiceInterface;
+use Modules\Tag\Request\TagRequest;
+use Modules\Tag\Services\Interfaces\TagServiceInterface;
 use Exception;
-use Modules\Autor\Entities\Autor;
+use Modules\Tag\Entities\Tag;
 
-/**
- * @OA\Info(title="Livros", version="0.1")
- */
-class AutorController extends Controller
+
+class TagController extends Controller
 {
     protected $service;
 
-    public function __construct(AutorServiceInterface $service)
+    public function __construct(TagServiceInterface $service)
     {
         $this->service = $service;
     }
@@ -27,8 +25,8 @@ class AutorController extends Controller
     public function index()
     {
         try {
-            $autores = $this->service->list();
-            return view('autor.listar', compact('autores'));
+            $Tages = $this->service->list();
+            return view('Tag.listar', compact('Tags'));
         } catch (Exception $ex) {
             report($ex);
             return response()->json(['message' => 'Falha ao efetuar a listagem Web'], 500);
@@ -38,36 +36,36 @@ class AutorController extends Controller
     /**
      * Edição dos dados para WEB
      */
-    public function edit($CodAu = null)
+    public function edit($id = null)
     {
         try {
 
-            // Verifica se código foi informado.
-            if (empty($CodAu)) {
+            // Verifica se id foi informado.
+            if (empty($id)) {
                 // Redireciona usuário para tela de consulta.
-                return redirect()->route('indexAutor')
+                return redirect()->route('indexTag')
                     ->with('class', 'alert-warning')
-                    ->with('message', 'Código do Autor não foi informado.');
+                    ->with('message', 'Id do Tag não foi informado.');
             }
 
-            $autor = $this->service->find($CodAu);
+            $tag = $this->service->find($id);
 
             // Verifica se objeto foi encontrado.
-            if (empty($autor)) {
+            if (empty($tag)) {
                 // Redireciona usuário para tela de consulta.
-                return redirect()->route('indexAutor')
+                return redirect()->route('indexTag')
                     ->with('class', 'alert-warning')
-                    ->with('message', 'Autor não encontrado.');
+                    ->with('message', 'Tag não encontrado.');
             } else {
                 // Monta retorno de campos para a tela.
                 $dados = array(
-                    'title_page'    => 'Atualizar Autor',
-                    'autor'         => $autor,
+                    'title_page'    => 'Atualizar Tag',
+                    'Tag'         => $tag,
                     'MANTER'        => 'Atualizar'
                 );
 
                 // Retorna para a página de edição.
-                return view('autor/manter', $dados);
+                return view('Tag/manter', $dados);
             }
         } catch (Exception $ex) {
             report($ex);
@@ -77,8 +75,8 @@ class AutorController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/api/autor/list",
-     *     tags={"Autor"},
+     *     path="/api/Tag/list",
+     *     tags={"tag"},
      *     summary="Listar os Registros",
      *     @OA\Response(response="200", description="Success"),
      *     @OA\Response(response="404", description="Not Found"),
@@ -98,8 +96,8 @@ class AutorController extends Controller
 
     /**
      * @OA\Post(
-     ** path="/api/autor/create",
-     *   tags={"Autor"},
+     ** path="/api/Tag/create",
+     *   tags={"tag"},
      *   summary="Criar Registro",
      *   @OA\Parameter(
      *      name="Nome",
@@ -113,7 +111,7 @@ class AutorController extends Controller
      *   @OA\MediaType(mediaType="application/json")
      *)
      **/
-    public function create(AutorRequest $request)
+    public function create(TagRequest $request)
     {
         try {
             return $this->service->create($request->validated());
@@ -125,11 +123,11 @@ class AutorController extends Controller
 
     /**
      * @OA\Put(
-     ** path="/api/autor/update",
-     *   tags={"Autor"},
+     ** path="/api/Tag/update",
+     *   tags={"tag"},
      *   summary="Atualizar Registro",
      *   @OA\Parameter(
-     *      name="CodAu",
+     *      name="id",
      *      in="query",
      *      required=true,
      *      @OA\Schema(type="integer")
@@ -146,7 +144,7 @@ class AutorController extends Controller
      *   @OA\MediaType(mediaType="application/json")
      *)
      **/
-    public function update(AutorRequest $request)
+    public function update(TagRequest $request)
     {
         try {
             if($this->service->update($request->validated())) {
@@ -160,11 +158,11 @@ class AutorController extends Controller
 
     /**
      * @OA\Delete(
-     ** path="/api/autor/delete",
-     *   tags={"Autor"},
+     ** path="/api/Tag/delete",
+     *   tags={"tag"},
      *   summary="Excluir Registro",
      *   @OA\Parameter(
-     *      name="CodAu",
+     *      name="id",
      *      in="query",
      *      required=true,
      *      @OA\Schema(type="integer")
@@ -175,7 +173,7 @@ class AutorController extends Controller
      *   @OA\MediaType(mediaType="application/json")
      *)
      **/
-    public function delete(AutorRequest $request)
+    public function delete(TagRequest $request)
     {
         try {
             if($this->service->delete($request->validated())) {

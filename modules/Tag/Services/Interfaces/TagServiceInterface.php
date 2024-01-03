@@ -1,8 +1,8 @@
 <?php
 
-namespace Modules\Autor\Services\Interfaces;
+namespace Modules\Tag\Services\Interfaces;
 
-interface AutorServiceInterface
+interface TagServiceInterface
 {
     public function list();
     public function find($id);

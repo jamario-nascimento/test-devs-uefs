@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\Autor\Request;
+namespace Modules\Tag\Request;
 
-use Modules\Autor\Rule\ExcludeAutorRule;
+use Modules\Tag\Rule\ExcludeTagRule;
 use Illuminate\Foundation\Http\FormRequest;
-use Modules\Autor\Services\Interfaces\AutorServiceInterface;
+use Modules\Tag\Services\Interfaces\TagServiceInterface;
 
-class AutorRequest extends FormRequest
+class TagRequest extends FormRequest
 {
     protected $service;
 
@@ -15,7 +15,7 @@ class AutorRequest extends FormRequest
      *
      * @return void
      */
-    public function __construct(AutorServiceInterface $service)
+    public function __construct(TagServiceInterface $service)
     {
         $this->service = $service;
     }
@@ -48,7 +48,7 @@ class AutorRequest extends FormRequest
 
         // Regras de criação e edição
         $rules_default = [
-            'Nome' => [
+            'Slug' => [
                 'required',
                 'max:40',
             ],
@@ -61,10 +61,10 @@ class AutorRequest extends FormRequest
         // update
         elseif ($this->route()->getActionMethod() == 'update') {
             $rules_update = [
-                'CodAu' => [
+                'id' => [
                     'required',
-                    'unique:Autor,CodAu,' . $this->CodAu . ',CodAu',
-                    'exists:Autor,CodAu',
+                    'unique:Autor,id,' . $this->id . ',id',
+                    'exists:Autor,id',
                     'max:11'
                 ],
             ];
@@ -75,7 +75,7 @@ class AutorRequest extends FormRequest
         elseif ($this->route()->getActionMethod() == 'delete') {
             // Regras de exclusão
             $rules_destroy = [
-                'CodAu' => new ExcludeAutorRule(),
+                'id' => new ExcludeTagRule(),
             ];
 
             return $rules_destroy;
@@ -103,8 +103,8 @@ class AutorRequest extends FormRequest
     public function attributes()
     {
         $result = [
-            'CodAu'             => 'Identificador',
-            'Nome'              => 'Nome'
+            'id'             => 'Identificador',
+            'Slug'              => 'Slug'
         ];
 
         return $result;
@@ -118,9 +118,9 @@ class AutorRequest extends FormRequest
     public function messages()
     {
         return [
-            'CodAu.required'            => 'O campo Identificador é obrigatório',
-            'CodAu.exists'              => 'O Identificador não foi encontrado',
-            'Nome.required'             => 'O campo Nome é obrigatório',
+            'id.required'            => 'O campo Identificador é obrigatório',
+            'id.exists'              => 'O Identificador não foi encontrado',
+            'Slug.required'          => 'O campo Slug é obrigatório',
         ];
     }
 }

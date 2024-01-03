@@ -1,8 +1,8 @@
 <?php
 
-namespace Modules\Autor\Repositories\Interfaces;
+namespace Modules\Tag\Repositories\Interfaces;
 
-interface AutorRepositoryInterface
+interface TagRepositoryInterface
 {
     public function all();
     public function find($id);
