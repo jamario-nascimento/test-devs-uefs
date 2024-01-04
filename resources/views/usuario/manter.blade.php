@@ -40,11 +40,31 @@
                             <!-- nome -->
                             <div class="form-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                 <label class="text-input">Nome *</label>
-                                <input id="nome" name="nome" type="text" class="form-control validarErro" value="{{ old('nome', $usuario->nome ?? null) }}" maxlength="20" autocomplete="off" required>
+                                <input id="nome" name="nome" type="text" class="form-control validarErro" value="{{ old('nome', $usuario->nome ?? null) }}" maxlength="100" autocomplete="off" required>
 
                                 <div class="invalid-feedback"></div>
 
                                 <label id="nome-error" class='text-danger invalid-feedback' style="display: none"></label>
+                            </div>
+
+                             <!-- data de nascimento -->
+                             <div class="form-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <label class="text-input">Data de Nascimento *</label>
+                                <input id="data_nascimento" name="data_nascimento" type="date" class="form-control validarErro" value="{{ old('data_nascimento', $usuario->data_nascimento ?? null) }}" autocomplete="off" required>
+
+                                <div class="invalid-feedback"></div>
+
+                                <label id="data_nascimento-error" class='text-danger invalid-feedback' style="display: none"></label>
+                            </div>
+
+                            <!-- email -->
+                            <div class="form-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                <label class="text-input">E-mail *</label>
+                                <input id="email" name="email" type="email" class="form-control validarErro" value="{{ old('email', $usuario->email ?? null) }}" maxlength="100" autocomplete="off" required>
+
+                                <div class="invalid-feedback"></div>
+
+                                <label id="email-error" class='text-danger invalid-feedback' style="display: none"></label>
                             </div>
                         </div>
                     </div>

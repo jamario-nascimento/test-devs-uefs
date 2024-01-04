@@ -23,8 +23,8 @@ class UsuarioController extends Controller
     public function index()
     {
         try {
-            $Usuarios = $this->service->list();
-            return view('usuario.listar', compact('Usuarios'));
+            $usuarios = $this->service->list();
+            return view('usuario.listar', compact('usuarios'));
         } catch (Exception $ex) {
             report($ex);
             return response()->json(['message' => 'Falha ao efetuar a listagem Web'], 500);

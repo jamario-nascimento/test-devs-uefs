@@ -30,7 +30,7 @@
 
     @include('componentes.loading')
 
-    @if (!empty($usuario) && count($usuario) > 0)
+    @if (!empty($usuarios) && count($usuarios) > 0)
         <div class="card">
             <div class="card-body">
                 <table id="table" class="table table-striped">
@@ -45,14 +45,15 @@
                     </thead>
 
                     <tbody>
-                        @if (!empty($usuario))
-                            @foreach ($usuario as $p)
+                        @if (!empty($usuarios))
+                            @foreach ($usuarios as $p)
                                 <tr>
                                     <td class="text-center">{{ $p->id }}</td>
-                                    <td>{{ $p->Nome }}</td>
-
+                                    <td>{{ $p->nome }}</td>
+                                    <td>{{ $p->data_nascimento }}</td>
+                                    <td>{{ $p->email }}</td>
                                     <td class="text-center">
-                                        <a title="Editar" href="{{ route('editarAssunto', $p->id) }}" class="mr-3">
+                                        <a title="Editar" href="{{ route('editarUsuario', $p->id) }}" class="mr-3">
                                             <i class="fa fa-pen"></i>
                                         </a>
 

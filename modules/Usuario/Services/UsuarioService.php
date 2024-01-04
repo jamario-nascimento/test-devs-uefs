@@ -27,14 +27,18 @@ class UsuarioService implements UsuarioServiceInterface
 
     public function create(array $usuario)
     {
-        $usuario['Descricao'] = $usuario['Descricao'];
+        $usuario['nome'] = $usuario['nome'];
+        $usuario['data_nascimento'] = $usuario['data_nascimento'];
+        $usuario['email'] = $usuario['email'];
         return $this->usuarioRepository->create($usuario);
     }
 
     public function update(array $usuario)
     {
         $update = $this->find($usuario['id']);
-        $update['Descricao'] = $usuario['Descricao'];
+        $update['nome'] = $usuario['nome'];
+        $update['data_nascimento'] = $usuario['data_nascimento'];
+        $update['email'] = $usuario['email'];
         return $this->usuarioRepository->update($update);
     }
 
