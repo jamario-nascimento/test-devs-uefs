@@ -58,7 +58,7 @@ class UsuarioController extends Controller
                 // Monta retorno de campos para a tela.
                 $dados = array(
                     'title_page'    => 'Atualizar Usuario',
-                    'Usuario'         => $usuario,
+                    'usuario'         => $usuario,
                     'MANTER'        => 'Atualizar'
                 );
 
@@ -94,7 +94,7 @@ class UsuarioController extends Controller
 
     /**
      * @OA\Post(
-     ** path="/api/Usuario/create",
+     ** path="/api/usuario/create",
      *   tags={"usuario"},
      *   summary="Criar Registro",
      *   @OA\Parameter(
@@ -121,7 +121,7 @@ class UsuarioController extends Controller
 
     /**
      * @OA\Put(
-     ** path="/api/Usuario/update",
+     ** path="/api/usuario/update",
      *   tags={"usuario"},
      *   summary="Atualizar Registro",
      *   @OA\Parameter(
@@ -168,7 +168,7 @@ class UsuarioController extends Controller
 
     /**
      * @OA\Delete(
-     ** path="/api/Usuario/delete",
+     ** path="/api/usuario/delete",
      *   tags={"usuario"},
      *   summary="Excluir Registro",
      *   @OA\Parameter(
