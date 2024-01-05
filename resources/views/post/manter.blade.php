@@ -96,7 +96,7 @@
                                 @if (!empty($tags))
                                 @foreach ($tags as $tag)
                                 <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 form-check">
-                                    <input type="checkbox" class="form-check-input" name="tag[]" id="tag{{ $tag->id }}" value="{{ $tag->id }}" {{ in_array($tag->id,$listTag)  ? ' checked ' : '' }}>
+                                    <input type="checkbox" class="form-check-input" name="tag[]" id="tag{{ $tag->id }}" value="{{ $tag->id }}" {{ in_array($tag->id,$listTags)  ? ' checked ' : '' }}>
                                     <label class="form-check-label" for="tag{{ $tag->id }}">{{ $tag->Slug }}</label>
                                 </div>
                                 @endforeach

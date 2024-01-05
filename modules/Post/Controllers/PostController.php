@@ -57,7 +57,7 @@ class PostController extends Controller
                 'conteudo'      => null,
                 'tag'           => $tags,
                 'usuarios'      => $usuarios,
-                'listTag'       => [],
+                'listTags'       => [],
                 'MANTER'        => 'Cadastrar'
             );
 
