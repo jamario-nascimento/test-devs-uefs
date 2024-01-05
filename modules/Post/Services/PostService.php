@@ -31,15 +31,14 @@ class PostService implements PostServiceInterface
         $post['titulo'] = $post['titulo'];
         $post['resumo'] = $post['resumo'];
         $post['conteudo'] = $post['conteudo'];
-        $post['usuario'] = $post['usuario'];
+        $post['usuario_id'] = $post['usuario_id'];
 
         DB::beginTransaction();
-        $objpost = $this->postRepository->create($post);
+        $objPost = $this->postRepository->create($post);
+        dd($objPost);
+        $auxPost = $this->find($objPost->id,['with' => ['tags']]);
 
-        $auxpost = $this->find($objpost->id,['with' => ['tag']]);
-
-
-        $auxpost->tags()->attach($post['tags']);
+        $auxPost->tags()->attach($post['tags']);
         DB::commit();
         return $objPost;
     }
@@ -51,7 +50,7 @@ class PostService implements PostServiceInterface
         $update['titulo'] = $post['titulo'];
         $update['resumo'] = $post['resumo'];
         $update['conteudo'] = $post['conteudo'];
-        $update['usuario'] = $post['usuario'];
+        $update['usuario_id'] = $post['usuario_id'];
 
         $update->tags()->detach($update->tags);
 

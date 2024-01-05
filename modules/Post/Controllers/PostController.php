@@ -57,7 +57,7 @@ class PostController extends Controller
                 'titulo'        => null,
                 'resumo'        => null,
                 'conteudo'      => null,
-                'tag'           => $tags,
+                'tags'           => $tags,
                 'usuarios'      => $usuarios,
                 'listTags'       => [],
                 'MANTER'        => 'Cadastrar'

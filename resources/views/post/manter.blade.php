@@ -61,7 +61,7 @@
                             <!-- Usuário -->
                             <div class="form-group col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                 <label class="text-input">Autor *</label>
-                                <select class="form-control m-bot15" name="usuario" id="usuario" required>
+                                <select class="form-control m-bot15" name="usuario_id" id="usuario" required>
                                     @if($usuarios->count() > 0)
                                     @foreach($usuarios as $usuario)
                                     <option value="{{$usuario->id}}">{{$usuario->nome}}</option>
@@ -78,8 +78,7 @@
                             <!-- Conteúdo -->
                             <div class="form-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                 <label class="text-input">Conteudo *</label>
-                                <textarea id="conteudo" name="conteudo" type="text" class="form-control validarErro" value="{{ old('conteudo', $post->conteudo ?? null) }}" autocomplete="off" required>
-                                </textarea>
+                                <textarea id="conteudo" name="conteudo" type="text" class="form-control validarErro" autocomplete="off" required>{{ old('conteudo', $post->conteudo ?? null) }}</textarea>
                                 <div class="invalid-feedback"></div>
 
                                 <label id="conteudo-error" class='text-danger invalid-feedback' style="display: none"></label>
@@ -90,13 +89,13 @@
                             <!-- Tags -->
                             <div class="form-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                 <hr>
-                                <label class="text-input">Tag *</label>
+                                <label class="text-input">Tag</label>
                             </div>
                             <div class="form-group row col-sm-12 col-md-12 col-lg-12 col-xl-12 ml-1">
                                 @if (!empty($tags))
                                 @foreach ($tags as $tag)
-                                <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 form-check">
-                                    <input type="checkbox" class="form-check-input" name="tag[]" id="tag{{ $tag->id }}" value="{{ $tag->id }}" {{ in_array($tag->id,$listTags)  ? ' checked ' : '' }}>
+                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 form-check">
+                                    <input type="checkbox" class="form-check-input" name="tags[]" id="tag{{ $tag->id }}" value="{{ $tag->id }}" {{ in_array($tag->id,$listTags)  ? ' checked ' : '' }}>
                                     <label class="form-check-label" for="tag{{ $tag->id }}">{{ $tag->Slug }}</label>
                                 </div>
                                 @endforeach

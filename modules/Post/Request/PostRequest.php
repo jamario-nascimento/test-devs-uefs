@@ -64,8 +64,8 @@ class PostRequest extends FormRequest
             'tags' => [
                 'min:0',
             ],
-            'autor' => [
-                'min:0',
+            'usuario_id' => [
+                'required',
             ],
         ];
 
@@ -123,7 +123,7 @@ class PostRequest extends FormRequest
             'resumo'        => 'Resumo',
             'conteudo'      => 'Conteúdo',
             'tags'          => 'Tags',
-            'usuario'       => 'Autor',
+            'usuario_id'    => 'Autor',
         ];
 
         return $result;
@@ -143,7 +143,7 @@ class PostRequest extends FormRequest
             'resumo.required'       => 'O campo Resumo é obrigatório',
             'conteudo.required'     => 'O campo Conteúdo é obrigatório',
             'tags.required'         => 'O campo Tags é obrigatório',
-            'usuario.required'      => 'O campo Autor é obrigatório',
+            'usuario_id.required'      => 'O campo Autor é obrigatório',
         ];
     }
 }
