@@ -16,8 +16,8 @@ $factory->define(Post::class, function (Faker $faker) {
         'titulo' => $faker->name($faker->numberBetween(10, 100)),
         'resumo' => $faker->text(200),
         'conteudo' => $faker->sentence(1000),
-        'Autores' => [$maxTags],
-        'Assuntos' => [$usuario],
+        'tag' => [$maxTags],
+        'usuario' => [$usuario],
     ];
 });
 

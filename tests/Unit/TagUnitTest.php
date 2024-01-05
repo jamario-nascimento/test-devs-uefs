@@ -2,10 +2,10 @@
 
 namespace Tests\Unit;
 
-use Modules\Autor\Entities\Autor;
+use Modules\Tag\Entities\Tag;
 use PHPUnit\Framework\TestCase;
 
-class AutorUnitTest extends TestCase
+class TagUnitTest extends TestCase
 {
     /**
      * A basic test example.
@@ -14,10 +14,10 @@ class AutorUnitTest extends TestCase
      */
     public function testCheckColumnsTest()
     {
-        $autor = new Autor();
+        $autor = new Tag();
 
         $expected = [
-            'Nome'
+            'Slug'
         ];
 
         $arrayCompared = array_diff($expected, $autor->getFillable());
