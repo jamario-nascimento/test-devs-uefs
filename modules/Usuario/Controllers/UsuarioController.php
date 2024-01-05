@@ -95,7 +95,7 @@ class UsuarioController extends Controller
     /**
      * @OA\Post(
      ** path="/api/usuario/create",
-     *   tags={"usuario"},
+     *   tags={"Usuario"},
      *   summary="Criar Registro",
      *   @OA\Parameter(
      *      name="Descricao",
@@ -122,7 +122,7 @@ class UsuarioController extends Controller
     /**
      * @OA\Put(
      ** path="/api/usuario/update",
-     *   tags={"usuario"},
+     *   tags={"Usuario"},
      *   summary="Atualizar Registro",
      *   @OA\Parameter(
      *      name="id",
@@ -169,7 +169,7 @@ class UsuarioController extends Controller
     /**
      * @OA\Delete(
      ** path="/api/usuario/delete",
-     *   tags={"usuario"},
+     *   tags={"Usuario"},
      *   summary="Excluir Registro",
      *   @OA\Parameter(
      *      name="id",

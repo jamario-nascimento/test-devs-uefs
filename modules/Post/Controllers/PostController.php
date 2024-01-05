@@ -153,7 +153,7 @@ class PostController extends Controller
     /**
      * @OA\Post(
      ** path="/api/post/create",
-     *   tags={"post"},
+     *   tags={"Post"},
      *   summary="Criar Registro",
      *   @OA\Parameter(
      *      name="titulo",
@@ -192,7 +192,7 @@ class PostController extends Controller
     /**
      * @OA\Put(
      ** path="/api/post/update",
-     *   tags={"post"},
+     *   tags={"Post"},
      *   summary="Atualizar Registro",
      *   @OA\Parameter(
      *      name="id",
@@ -239,7 +239,7 @@ class PostController extends Controller
     /**
      * @OA\Delete(
      ** path="/api/post/delete",
-     *   tags={"post"},
+     *   tags={"Post"},
      *   summary="Excluir Registro",
      *   @OA\Parameter(
      *      name="id",

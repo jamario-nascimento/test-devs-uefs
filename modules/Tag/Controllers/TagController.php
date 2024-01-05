@@ -97,10 +97,10 @@ class TagController extends Controller
     /**
      * @OA\Post(
      ** path="/api/tag/create",
-     *   tags={"tag"},
+     *   tags={"Tag"},
      *   summary="Criar Registro",
      *   @OA\Parameter(
-     *      name="slug",
+     *      name="Slug",
      *      in="query",
      *      required=true,
      *      @OA\Schema(type="string")
@@ -124,7 +124,7 @@ class TagController extends Controller
     /**
      * @OA\Put(
      ** path="/api/tag/update",
-     *   tags={"tag"},
+     *   tags={"Tag"},
      *   summary="Atualizar Registro",
      *   @OA\Parameter(
      *      name="id",
@@ -159,7 +159,7 @@ class TagController extends Controller
     /**
      * @OA\Delete(
      ** path="/api/tag/delete",
-     *   tags={"tag"},
+     *   tags={"Tag"},
      *   summary="Excluir Registro",
      *   @OA\Parameter(
      *      name="id",
