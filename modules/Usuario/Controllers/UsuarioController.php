@@ -74,7 +74,7 @@ class UsuarioController extends Controller
     /**
      * @OA\Get(
      *     path="/api/Usuario/list",
-     *     tags={"usuario"},
+     *     tags={"Usuario"},
      *     summary="Listar os Registros",
      *     @OA\Response(response="200", description="Success"),
      *     @OA\Response(response="404", description="Not Found"),
@@ -98,7 +98,19 @@ class UsuarioController extends Controller
      *   tags={"Usuario"},
      *   summary="Criar Registro",
      *   @OA\Parameter(
-     *      name="Descricao",
+     *      name="nome",
+     *      in="query",
+     *      required=true,
+     *      @OA\Schema(type="string")
+     *   ),
+     * *   @OA\Parameter(
+     *      name="data_nascimento",
+     *      in="query",
+     *      required=true,
+     *      @OA\Schema(type="string")
+     *   ),
+     * *   @OA\Parameter(
+     *      name="email",
      *      in="query",
      *      required=true,
      *      @OA\Schema(type="string")
@@ -140,7 +152,7 @@ class UsuarioController extends Controller
      *      name="data_nascimento",
      *      in="query",
      *      required=true,
-     *      @OA\Schema(type="date")
+     *      @OA\Schema(type="string")
      *   ),
      * *   @OA\Parameter(
      *      name="email",

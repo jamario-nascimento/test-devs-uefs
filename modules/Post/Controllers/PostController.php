@@ -9,7 +9,9 @@ use Modules\Post\Services\Interfaces\PostServiceInterface;
 use Exception;
 use Modules\Usuario\Services\Interfaces\UsuarioServiceInterface;
 use Modules\Tag\Services\Interfaces\TagServiceInterface;
-
+/**
+ * @OA\Info(title="Post", version="0.1")
+ */
 class PostController extends Controller
 {
     protected $service;
@@ -132,14 +134,14 @@ class PostController extends Controller
     /**
      * @OA\Get(
      *     path="/api/post/list",
-     *     tags={"post"},
+     *     tags={"Post"},
      *     summary="Listar os Registros",
      *     @OA\Response(response="200", description="Success"),
      *     @OA\Response(response="404", description="Not Found"),
      *     @OA\Response(response=500,description="Validate Error"),
      *     @OA\MediaType(mediaType="application/json")
      * )
-     */
+     **/
     public function list()
     {
         try {
@@ -169,6 +171,12 @@ class PostController extends Controller
      *   ),
      *   @OA\Parameter(
      *      name="conteudo",
+     *      in="query",
+     *      required=true,
+     *      @OA\Schema(type="string")
+     *   ),
+     *   @OA\Parameter(
+     *      name="usuario_id",
      *      in="query",
      *      required=true,
      *      @OA\Schema(type="integer")
@@ -214,6 +222,12 @@ class PostController extends Controller
      *   ),
      *   @OA\Parameter(
      *      name="conteudo",
+     *      in="query",
+     *      required=true,
+     *      @OA\Schema(type="string")
+     *   ),
+     *   @OA\Parameter(
+     *      name="usuario_id",
      *      in="query",
      *      required=true,
      *      @OA\Schema(type="integer")

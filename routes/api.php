@@ -29,7 +29,7 @@ Route::prefix('/usuario')->group(function () {
 });
 
 Route::prefix('/post')->group(function () {
-    Route::get('/list', '\Modules\Livro\Controllers\PostController@list')->name('listPost');
+    Route::get('/list', '\Modules\Post\Controllers\PostController@list')->name('listPost');
     Route::post('/create', '\Modules\Post\Controllers\PostController@create')->name('createPost');
     Route::put('/update', '\Modules\Post\Controllers\PostController@update')->name('updatePost');
     Route::delete('/delete', '\Modules\Post\Controllers\PostController@delete')->name('deletePost');

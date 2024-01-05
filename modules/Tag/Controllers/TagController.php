@@ -9,7 +9,6 @@ use Modules\Tag\Services\Interfaces\TagServiceInterface;
 use Exception;
 use Modules\Tag\Entities\Tag;
 
-
 class TagController extends Controller
 {
     protected $service;
@@ -76,7 +75,7 @@ class TagController extends Controller
     /**
      * @OA\Get(
      *     path="/api/tag/list",
-     *     tags={"tag"},
+     *     tags={"Tag"},
      *     summary="Listar os Registros",
      *     @OA\Response(response="200", description="Success"),
      *     @OA\Response(response="404", description="Not Found"),
