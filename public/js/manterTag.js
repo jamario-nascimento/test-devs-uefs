@@ -118,7 +118,7 @@ $(function () {
           timeOut: 6000
         });
         if (manter != 'Atualizar') {
-          $("#Slug").val("");
+          $("#slug").val("");
         }
         $(".validarErro").removeClass("is-invalid");
         $(".invalid-feedback").text("");

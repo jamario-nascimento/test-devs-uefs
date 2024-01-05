@@ -102,7 +102,7 @@ $(function () {
         url: "/api/post/delete",
         type: "DELETE",
         data: {
-          id: $(this).attr('id')
+          id: $(this).attr('cod')
         }
       }).done(function (resposta) {
         toastr.success('Registro Excluído com sucesso!', 'Excluir Post', {

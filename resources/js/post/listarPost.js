@@ -8,7 +8,7 @@ $(function () {
             $.ajax({
                 url: "/api/post/delete",
                 type: "DELETE",
-                data: {id:$(this).attr('id')}
+                data: {id:$(this).attr('cod')}
             }).done(function (resposta) {
 
             toastr.success('Registro Excluído com sucesso!', 'Excluir Post', { timeOut: 6000 });

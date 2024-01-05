@@ -40,7 +40,7 @@ $(function () {
               var result = json.error.message;
               var msg = [];
               $.each(result,function(index, value){
-                  if (index == 'Codl') {
+                  if (index == 'id') {
                       msg.push(value[0]);
                   } else {
                       $("#"+index).addClass("is-invalid");

@@ -38,8 +38,8 @@
                         <tr class="text-secondary">
                             <th class="text-center" scope="col">ID</th>
                             <th scope="col">Título</th>
-                            <th scope="col">Resumo</th>
                             <th scope="col">Autor</th>
+                            <th scope="col">Resumo</th>
                             <th class="text-center" scope="col">Opções</th>
                         </tr>
                     </thead>
@@ -50,8 +50,8 @@
                                 <tr>
                                     <td class="text-center">{{ $p->id }}</td>
                                     <td>{{ $p->titulo }}</td>
+                                    <td>{{ $p->usuario }}</td>
                                     <td>{{ $p->resumo }}</td>
-                                    <td>{{ $p->autor }}</td>
 
                                     <td class="text-center">
                                         <a title="Editar" href="{{ route('editarPost', $p->id) }}" class="mr-3">

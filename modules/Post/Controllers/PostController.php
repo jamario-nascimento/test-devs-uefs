@@ -51,14 +51,14 @@ class PostController extends Controller
 
             // Monta retorno de campos para a tela.
             $dados = array(
-                'title_page'    => 'Cadastrar post',
+                'title_page'    => 'Cadastrar Post',
                 'titulo'        => null,
                 'resumo'        => null,
-                'conteudo'        => null,
+                'conteudo'      => null,
                 'tag'           => $tags,
-                'usuarios'          => $usuarios,
+                'usuarios'      => $usuarios,
                 'listTag'       => [],
-                'MANTER'            => 'Cadastrar'
+                'MANTER'        => 'Cadastrar'
             );
 
             // Retorna para a página de edição.
@@ -80,7 +80,7 @@ class PostController extends Controller
             // Verifica se código foi informado.
             if (empty($id)) {
                 // Redireciona usuário para tela de consulta.
-                return redirect()->route('indexpost')
+                return redirect()->route('indexPost')
                     ->with('class', 'alert-warning')
                     ->with('message', 'Código do post não foi informado.');
             }
@@ -90,7 +90,7 @@ class PostController extends Controller
             // Verifica se objeto foi encontrado.
             if (empty($post)) {
                 // Redireciona usuário para tela de consulta.
-                return redirect()->route('indexpost')
+                return redirect()->route('indexPost')
                     ->with('class', 'alert-warning')
                     ->with('message', 'post não encontrado.');
             } else {

@@ -25,6 +25,8 @@ $(function () {
                 toastr.success('Registro efetuado com sucesso!', manter + ' Usuário', { timeOut: 6000 });
                 if (manter != 'Atualizar') {
                     $("#nome").val("");
+                    $("#data_nascimento").val("");
+                    $("#email").val("");
                 }
 
                 $(".validarErro").removeClass("is-invalid");
@@ -38,7 +40,7 @@ $(function () {
               var result = json.error.message;
               var msg = [];
               $.each(result,function(index, value){
-                  if (index == 'CodAu') {
+                  if (index == 'id') {
                       msg.push(value[0]);
                   } else {
                       $("#"+index).addClass("is-invalid");

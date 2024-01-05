@@ -24,7 +24,7 @@ $(function () {
             if (resposta.Slug != "") {
                 toastr.success('Registro efetuado com sucesso!', manter + ' Tag', { timeOut: 6000 });
                 if (manter != 'Atualizar') {
-                    $("#Slug").val("");
+                    $("#slug").val("");
                 }
 
                 $(".validarErro").removeClass("is-invalid");
