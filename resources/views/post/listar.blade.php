@@ -30,7 +30,7 @@
 
     @include('componentes.loading')
 
-    @if (!empty($post) && count($post) > 0)
+    @if (!empty($posts) && count($posts) > 0)
         <div class="card">
             <div class="card-body">
                 <table id="table" class="table table-striped">
@@ -45,12 +45,12 @@
                     </thead>
 
                     <tbody>
-                        @if (!empty($post))
-                            @foreach ($post as $p)
+                        @if (!empty($posts))
+                            @foreach ($posts as $p)
                                 <tr>
                                     <td class="text-center">{{ $p->id }}</td>
                                     <td>{{ $p->titulo }}</td>
-                                    <td>{{ $p->usuario }}</td>
+                                    <td>{{ $p->usuario->nome }}</td>
                                     <td>{{ $p->resumo }}</td>
 
                                     <td class="text-center">

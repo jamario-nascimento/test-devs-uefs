@@ -35,7 +35,6 @@ class PostService implements PostServiceInterface
 
         DB::beginTransaction();
         $objPost = $this->postRepository->create($post);
-        dd($objPost);
         $auxPost = $this->find($objPost->id,['with' => ['tags']]);
 
         $auxPost->tags()->attach($post['tags']);

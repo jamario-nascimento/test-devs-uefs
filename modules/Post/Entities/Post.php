@@ -4,6 +4,7 @@ namespace Modules\Post\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Modules\Tag\Entities\Tag;
+use Modules\Usuario\Entities\Usuario;
 
 class Post extends Model
 {
@@ -20,6 +21,10 @@ class Post extends Model
 
     public function tags() {
         return $this->belongsToMany(Tag::class,'post_tag');
+    }
+
+    public function usuario() {
+        return $this->belongsTo(Usuario::class,'usuario_id');
     }
 
 }

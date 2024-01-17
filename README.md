@@ -6,8 +6,8 @@ Faça um fork do repositório, aplique a solução e envie para avaliação.
 ## Critérios de Avaliação
 
 - Conhecimento e uso de recursos do Laravel.
-- Familiaridade com Docker e Docker Compose.
-- Organização e documentação do código.
+- Familiaridade com Docker e doDocker Compose.
+- Organização e documentação  código.
 - Competência em lógica de programação e nível de abstração.
 - Aplicação dos princípios do conceito SOLID.
 - Utilização de testes unitários (PHPUnit ou PEST).
