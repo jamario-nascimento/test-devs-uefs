@@ -1,24 +1,29 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Post\Entities\Post;
-use Faker\Generator as Faker;
-use Modules\Tag\Entities\Tag;
-use Modules\Usuario\Entities\Usuario;
 
-$factory->define(Post::class, function (Faker $faker) {
-    $max = Post::max('id');
-    $maxTags = Tag::max('idTag');
-    $usuario = Usuario::max('idUsuario');
-    return [
-        'id' => $max + 1,
-        'titulo' => $faker->name($faker->numberBetween(10, 100)),
-        'resumo' => $faker->text(200),
-        'conteudo' => $faker->sentence(1000),
-        'tag' => [$maxTags],
-        'usuario' => [$usuario],
-    ];
-});
+class PostFactory extends Factory
+{
 
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Post::class;
 
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            //
+        ];
+    }
+}

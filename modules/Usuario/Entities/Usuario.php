@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Usuario extends Model
 {
     public $incrementing = true;
-
+    protected $guarded = [];
     protected $table        = 'usuario';
     protected $primaryKey   = 'id';
     public $fillable = [

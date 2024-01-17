@@ -77,8 +77,11 @@ docker-compose exec php-fpm php artisan migrate
 
 ## Teste de código
 
+docker-compose exec php-fpm php artisan make:factory PostFactory
+
 docker-compose exec php-fpm php artisan test
 
+docker-compose exec php-fpm php artisan test --filter testShouldCreatePost
 ## Documentação - Swagger API
 
 - [Swagger API](http://localhost/api/)
