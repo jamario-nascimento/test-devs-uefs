@@ -34,8 +34,6 @@ class PostController extends Controller
     {
         try {
             $posts = $this->service->list();
-            // $usuario = $this->serviceUsuario->find($posts->usuario_id);
-            // dd($posts);
             return view('post.listar', compact('posts'));
         } catch (Exception $ex) {
             report($ex);
